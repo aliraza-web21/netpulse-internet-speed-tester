@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NetPulse — Network Speed Tester</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="NetPulse home">
+        <span class="brand-mark">N</span>
+        <span>Net<span class="brand-light">Pulse</span></span>
+      </a>
+      <span class="status-pill"><span class="status-dot"></span> NETWORK TOOL</span>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="eyebrow">YOUR CONNECTION, DECODED</p>
+        <h1>How fast is your <span>internet?</span></h1>
+        <p class="subtitle">Check your connection's performance in a few seconds.</p>
+      </section>
+
+      <section class="tester-card" aria-labelledby="test-title">
+        <div class="card-heading">
+          <div>
+            <p class="eyebrow">LIVE CONNECTION CHECK</p>
+            <h2 id="test-title">Internet speed test</h2>
+          </div>
+          <span class="ready-label" id="state-label"><span class="mini-dot"></span> Ready to test</span>
+        </div>
+
+        <div class="speed-area">
+          <div class="gauge" id="gauge" style="--progress: 0deg">
+            <div class="gauge-inner">
+              <div class="gauge-icon" id="gauge-icon">↯</div>
+              <div class="speed-number" id="main-speed">—</div>
+              <div class="speed-unit">Mbps</div>
+              <div class="speed-caption" id="speed-caption">Press start to begin</div>
+            </div>
+          </div>
+          <div class="test-progress" aria-live="polite">
+            <div class="progress-track"><div id="progress-bar"></div></div>
+            <p id="progress-text">Your test results will appear here.</p>
+          </div>
+          <button class="start-button" id="start-btn" type="button">
+            <span id="button-icon">▶</span> <span id="button-text">Start speed test</span>
+          </button>
+          <p class="fine-print">For best results, pause large downloads and streaming during the test.</p>
+        </div>
+
+        <div class="metrics-grid">
+          <article class="metric">
+            <div class="metric-top"><span class="metric-icon ping-icon">◷</span><span class="metric-name">PING</span></div>
+            <div class="metric-value"><span id="ping-value">—</span><small>ms</small></div>
+            <p>Server response time</p>
+          </article>
+          <article class="metric">
+            <div class="metric-top"><span class="metric-icon download-icon">↓</span><span class="metric-name">DOWNLOAD</span></div>
+            <div class="metric-value"><span id="download-value">—</span><small>Mbps</small></div>
+            <p>Receiving data</p>
+          </article>
+          <article class="metric">
+            <div class="metric-top"><span class="metric-icon upload-icon">↑</span><span class="metric-name">UPLOAD</span></div>
+            <div class="metric-value"><span id="upload-value">—</span><small>Mbps</small></div>
+            <p>Sending data</p>
+          </article>
+        </div>
+        <div class="notice" id="notice" role="status">
+          <span class="notice-symbol">i</span>
+          <span>This starter version measures real browser request timings. Results can vary by connection, browser and test server.</span>
+        </div>
+      </section>
+
+      <section class="info-row">
+        <article class="info-card">
+          <span class="info-number">01</span>
+          <h3>Ping</h3>
+          <p>How quickly a server responds to a small request. Lower is generally better for gaming and calls.</p>
+        </article>
+        <article class="info-card">
+          <span class="info-number">02</span>
+          <h3>Download</h3>
+          <p>How quickly data reaches your device. This affects streaming, browsing and downloading files.</p>
+        </article>
+        <article class="info-card">
+          <span class="info-number">03</span>
+          <h3>Upload</h3>
+          <p>How quickly your device sends data. This matters for video calls, file sharing and live streaming.</p>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <span>NetPulse <span class="footer-muted">· Network Speed Tester</span></span>
+      <span>Built with HTML, CSS & JavaScript</span>
+    </footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
