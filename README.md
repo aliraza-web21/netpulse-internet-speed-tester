@@ -63,7 +63,7 @@ netpulse-internet-speed-tester/
 **1. Clone the repository**
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/netpulse-internet-speed-tester.git
+git clone https://github.com/aliraza-web21/netpulse-internet-speed-tester.git
 ```
 
 Replace `YOUR-USERNAME` with your GitHub username.
