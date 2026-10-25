@@ -122,7 +122,6 @@ async function runTest() {
     progressText.textContent="A request failed. Check your internet connection and try again."
     progressText.style.color="red"
     setState("Test could not finish");
-    // setProgress(100, "A request failed. Check your internet connection and try again.");
     speedCaption.textContent = "Test unavailable";
     notice.innerHTML = `<span class="notice-symbol">!</span><span>${error.message} This test needs access to Cloudflare's speed-test endpoints. If blocked by your network or browser, try again later or configure your own test server.</span>`;
   } finally {
