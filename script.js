@@ -119,8 +119,10 @@ async function runTest() {
     notice.innerHTML = '<span class="notice-symbol">i</span><span>These are approximate browser-based measurements. Your result may differ from your ISP plan or other speed-test services.</span>';
     speedCaption.textContent = "Download speed";
   } catch (error) {
+    progressText.textContent="A request failed. Check your internet connection and try again."
+    progressText.style.color="red"
     setState("Test could not finish");
-    setProgress(100, "A request failed. Check your internet connection and try again.");
+    // setProgress(100, "A request failed. Check your internet connection and try again.");
     speedCaption.textContent = "Test unavailable";
     notice.innerHTML = `<span class="notice-symbol">!</span><span>${error.message} This test needs access to Cloudflare's speed-test endpoints. If blocked by your network or browser, try again later or configure your own test server.</span>`;
   } finally {
