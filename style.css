@@ -7,6 +7,7 @@
   --line: rgba(153, 177, 214, .14);
   --text: #f1f6ff;
   --muted: #8e9bb1;
+  --red: red;
   --cyan: #51e0d0;
   --blue: #6a8cff;
   --green: #55e6a5;
@@ -44,11 +45,87 @@ h2 { margin-bottom: 0; font: 600 20px 'Space Grotesk', sans-serif; }
 .ready-label .mini-dot { width: 6px; height: 6px; background: #9aa9bf; box-shadow: none; }
 .ready-label.testing .mini-dot { background: var(--cyan); box-shadow: 0 0 10px var(--cyan); animation: pulse 1s infinite; }
 .speed-area { padding: 30px 20px 28px; text-align: center; }
-.gauge { --progress: 0deg; position: relative; display: grid; place-items: center; width: 230px; height: 230px; margin: 0 auto 20px; border-radius: 50%; background: conic-gradient(from 225deg, var(--cyan) 0deg, #6b9aff var(--progress), rgba(107,145,190,.12) var(--progress), rgba(107,145,190,.12) 270deg, transparent 270deg 360deg); transition: background .25s ease; }
-.gauge::before { content: ""; position: absolute; inset: 9px; border-radius: 50%; background: #101a2a; box-shadow: inset 0 0 35px rgba(0,0,0,.35); }
-.gauge::after { content: ""; position: absolute; inset: 18px; border: 1px solid rgba(151,180,221,.1); border-radius: 50%; }
-.gauge-inner { z-index: 1; display: flex; align-items: center; flex-direction: column; }
-.gauge-icon { display: grid; place-items: center; width: 31px; height: 31px; margin-bottom: 3px; border-radius: 10px; color: var(--cyan); background: rgba(81,224,208,.1); font-size: 23px; }
+.gauge {
+  --progress: 0deg;
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 230px;
+  height: 230px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 225deg,
+    var(--cyan) 0deg,
+    #6b9aff var(--progress),
+    rgba(107,145,190,.12) var(--progress),
+    rgba(107,145,190,.12) 270deg,
+    transparent 270deg 360deg
+  );
+  transition: background 0.15s linear;
+}
+
+.gauge::before {
+  content: "";
+  position: absolute;
+  inset: 9px;
+  border-radius: 50%;
+  background: #101a2a;
+  box-shadow: inset 0 0 35px rgba(0,0,0,.35);
+}
+
+.gauge::after {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border: 1px solid rgba(151,180,221,.1);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.gauge-inner {
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Speedometer needle */
+.gauge-needle {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  top: 50%;
+  width: 4px;
+  height: 76px;
+  border-radius: 4px;
+  background: linear-gradient(to top, var(--cyan), #ffffff);
+  box-shadow: 0 0 12px rgba(81,224,208,.55);
+  transform-origin: center 100%;
+  transform: translate(-50%, -100%) rotate(-135deg);
+  transition: transform 0.12s linear;
+  pointer-events: none;
+}
+
+.gauge-needle::after {
+  content: "";
+  position: absolute;
+  bottom: -7px;
+  left: 50%;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--cyan);
+  border: 3px solid #101a2a;
+  transform: translateX(-50%);
+  box-sizing: border-box;
+}
+
+@media (max-width: 650px) {
+  .gauge-needle {
+    height: 67px;
+  }
+}
 .speed-number { font: 600 52px/.98 'Space Grotesk', sans-serif; letter-spacing: -2px; }
 .speed-unit { margin-top: 5px; color: #9babc0; font-size: 12px; }
 .speed-caption { margin-top: 13px; color: var(--cyan); font-size: 11px; }
